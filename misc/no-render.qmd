@@ -1,0 +1,37 @@
+---
+title: Does Not Render
+format: 
+  html:
+    fig-height: 10
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+penguins <- read_csv("https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/data-raw/penguins.csv")
+```
+
+
+:::: {.columns}
+
+::: {.column width="25%"}
+Column 1
+:::
+
+::: {.column width="75%"}
+```{r}
+#| fig-height: 20
+penguins |> 
+  count(island) |> 
+  ggplot(aes(x = island, 
+             y = n)) +
+  geom_col()
+```
+
+:::
+
+::::
