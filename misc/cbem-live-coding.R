@@ -7,7 +7,7 @@ library(scales)
 
 cbem_bar_chart <- function(state_to_filter, age_group_to_filter) {
   cbem <-
-    read_csv("https://rin3fall2025.rfortherestofus.com/data-raw/cbem.csv") |>
+    read_csv("https://rin3spring2026.rfortherestofus.com/data-raw/cbem.csv") |>
     mutate(percent_formatted = percent(percent, accuracy = 0.1))
 
   max_y_value <-
@@ -38,22 +38,25 @@ cbem_bar_chart <- function(state_to_filter, age_group_to_filter) {
     filter(location == state_to_filter) |>
     filter(age_group == age_group_to_filter) |>
     filter(group != "All Persons") |>
-    mutate(group = fct(
-      group,
-      levels =
-        c(
+    mutate(
+      group = fct(
+        group,
+        levels = c(
           "American Indian or Alaska Native",
           "Asian or Pacific Islander",
           "Black or African American",
           "White",
           "Hispanic or Latino"
         )
-    )) |>
+      )
+    ) |>
     mutate(x_position = row_number()) |>
-    mutate(x_position = case_when(
-      group == "Hispanic or Latino" ~ 5.25,
-      .default = x_position
-    )) |>
+    mutate(
+      x_position = case_when(
+        group == "Hispanic or Latino" ~ 5.25,
+        .default = x_position
+      )
+    ) |>
     ggplot(
       aes(
         x = x_position,
@@ -97,8 +100,14 @@ cbem_bar_chart <- function(state_to_filter, age_group_to_filter) {
 }
 
 cbem_bar_chart_two_age_groups <- function(state_to_chart) {
-  cbem_bar_chart(state_to_filter = state_to_chart, age_group_to_filter = "Under 18") +
-    cbem_bar_chart(state_to_filter = state_to_chart, age_group_to_filter = "Under 25")
+  cbem_bar_chart(
+    state_to_filter = state_to_chart,
+    age_group_to_filter = "Under 18"
+  ) +
+    cbem_bar_chart(
+      state_to_filter = state_to_chart,
+      age_group_to_filter = "Under 25"
+    )
 }
 
 cbem_bar_chart_two_age_groups(state_to_chart = "Oregon")

@@ -44,7 +44,7 @@ Please put your answer in the chat!
 
 
 ::: {.notes}
-https://rin3fall2025.rfortherestofus.com/slides/slides-week-03.html
+https://rin3spring2026.rfortherestofus.com/slides/slides-week-03.html
 :::
 
 # Housekeeping {.inverse}

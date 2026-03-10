@@ -41,7 +41,7 @@ library(janitor)
 4. Wrapping Up
 
 ::: notes
-https://rin3fall2025.rfortherestofus.com/slides/slides-week-13.html
+https://rin3spring2026.rfortherestofus.com/slides/slides-week-13.html
 :::
 
 # How Far You've Come {.inverse}

@@ -58,7 +58,7 @@ world_sf <- countries110 |>
 1. Next Week
 
 ::: {.notes}
-https://rin3fall2025.rfortherestofus.com/slides/slides-week-01.html
+https://rin3spring2026.rfortherestofus.com/slides/slides-week-01.html
 :::
 
 # Survey
@@ -95,7 +95,7 @@ gs4_auth(Sys.getenv("GOOGLE_SHEETS_EMAIL"))
 participants <-
   read_sheet(
     "https://docs.google.com/spreadsheets/d/1Rz7_1_CzxURdhPHRj9YAzV-tgQP6xQmY_qV0VPjhPYs/edit?gid=1000657231#gid=1000657231",
-    sheet = "Fall 2025 Participants"
+    sheet = "Spring 2026 Participants"
   ) |>
   clean_names()
 
@@ -121,8 +121,7 @@ ggplot() +
   geom_sf(
     data = world_sf,
     fill = "bisque",
-    color = "white",
-    size = 2
+    color = "white"
   ) +
   geom_sf(
     data = geocoded_participants,
@@ -148,7 +147,7 @@ pre_survey_filtered <-
   pre_survey |>
   mutate(year = year(timestamp)) |>
   filter(
-    timestamp > ymd("2025-09-01")
+    timestamp > ymd("2026-02-01")
   ) |>
   mutate(
     how_much_have_you_used_r = factor(
@@ -310,9 +309,10 @@ Share with the people in your breakout room:
 
 ## Course Materials
 
-[![](assets/course-materials.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2025)
+[![](assets/course-materials.png)](https://rfortherestofus.com/courses/r-in-3-months-spring-2026)
 
 ::: {.notes}
+- First to see Positron materials
 - Try not to get more than 2 weeks behind
 - Transcripts within videos
 - Course questions
@@ -324,7 +324,7 @@ Share with the people in your breakout room:
 
 ## Project Assignments
 
-[![](assets/project-assignment-example.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/fall2024-week2-project_assignment)
+[![](assets/project-assignment-example.png)](https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/spring-2026-week-2-project-assignment)
 
 ## Feedback
 
@@ -402,12 +402,20 @@ Paste email on chat if needed: gracielle@rfortherestofus.com
 # Getting Started Questions {.inverse}
 
 ::: {.notes}
-- RTools
-
 - Tidyverse loading message
 - Whether packages are loaded vs installed (packages tab)
 - read.csv vs read_csv
 - Can you set up R to automatically load packages you always use?
+:::
+
+# The Elephant in the Room: AI
+
+::: {.notes}
+https://datavizf25.classes.andrewheiss.com/news/2025-11-02_llms-bad-for-learning-code.html
+
+https://www.andrewheiss.com/ai/
+
+https://datavizf25.classes.andrewheiss.com/news/2025-12-10_faqs_week-15.html
 :::
 
 # Next Week {.inverse}
