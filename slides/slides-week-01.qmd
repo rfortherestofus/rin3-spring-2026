@@ -30,7 +30,7 @@ library(tidyverse)
 library(googlesheets4)
 library(lubridate)
 library(janitor)
-# library(hrbrthemes)
+library(hrbrthemes)
 library(scales)
 library(tidygeocoder)
 library(rnaturalearthdata)
@@ -121,8 +121,8 @@ ggplot() +
   geom_sf(
     data = world_sf,
     fill = "bisque",
-    # color = "white",
-    size = 0
+    color = "white",
+    size = 0.1
   ) +
   geom_sf(
     data = geocoded_participants,
