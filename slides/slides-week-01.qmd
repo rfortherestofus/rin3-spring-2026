@@ -55,6 +55,8 @@ world_sf <- countries110 |>
 
 1. Questions on Getting Started with R
 
+1. The Elephant in the Room: AI
+
 1. Next Week
 
 ::: {.notes}
