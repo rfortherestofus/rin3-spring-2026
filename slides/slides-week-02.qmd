@@ -47,8 +47,6 @@ Please put your answer in the chat!
 
 1. Common Issues and Your Questions
 
-1. Weekly Coach Tips
-
 1. Next Week
 
 ::: {.notes}
@@ -56,8 +54,6 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-02.html
 :::
 
 # Housekeeping {.inverse}
-
-## Discord {.inverse}
 
 ## Project Assignments
 
@@ -371,11 +367,6 @@ get_acs(
 ```
 :::
 
-# Weekly coach tips
-
-1. Focus on mastering the basics before reaching for AI
-
-1. Don't be afraid to submit your assignments.
 
 # Next Week
 
