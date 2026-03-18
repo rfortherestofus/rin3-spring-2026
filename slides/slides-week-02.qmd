@@ -43,7 +43,7 @@ Please put your answer in the chat!
 
 1. Housekeeping
 
-1. Review of `dplyr` Functions
+1. Review of {dplyr} Functions
 
 1. Common Issues and Your Questions
 
@@ -56,8 +56,6 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-02.html
 :::
 
 # Housekeeping {.inverse}
-
-## Zoom Links {.inverse}
 
 ## Discord {.inverse}
 
@@ -79,7 +77,7 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-02.html
 
 ## Cheatsheets
 
-- [Posit Cheatsheets](https://github.com/rfortherestofus/rin3-fall-2025/blob/main/misc/beginner-cheatsheets.pdf)
+- [Posit Cheatsheets](https://github.com/rfortherestofus/rin3-spring-2026/blob/main/misc/beginner-cheatsheets.pdf)
 
 - [R for the Rest of Us Cheatsheets](https://cheatsheets.rfortherestofus.com/cheatsheets-rin3.html)
 
@@ -113,12 +111,16 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-02.html
 
 ## The `.by` argument in summarize()
 
-::: {.notes}
-An observation that I am curious about: The group_by with two variables appears to sort the tibble by the first variable alphabetically (island), while the alternative method David showed (i.e., the .by) sorts it by the year in the tibble. Is this always the case or was this simply by chance that this change in sorting of the summary tibble occured?
+> An observation that I am curious about: The group_by with two variables appears to sort the tibble by the first variable alphabetically (island), while the alternative method David showed (i.e., the .by) sorts it by the year in the tibble. Is this always the case or was this simply by chance that this change in sorting of the summary tibble occured?
 
+::: {.notes}
 - .by argument keeps original order
 - group_by() changes order to alphabetical
 :::
+
+## `summarize()`
+
+> What is the benefit of using arithmetic functions like `sum()`, `mean()`, `average()`, or `count()` inside `summarize()` instead of using these functions on their own? Is it because `summarize()` allows you to compute multiple summary statistics at once and organize them more efficiently?
 
 ## How to Import Excel Files 
 
@@ -160,29 +162,22 @@ Can you set up R to always load certain packages?
 > What is the point of creating both a R script file and a R project file? I understand that R project is a higher level structure and maybe it can pull from outputs of different R script files... please de-mystify.
 
 ::: {.notes}
-- Give tour of what it was like before RStudio
+- Give tour of what it was like before RStudio/Positron
 - Talk about relative vs absolute file paths
 - Talk about reproducibility for others if you use absolute file paths
 :::
 
+## Projects
+
+> I started this video after I closed and reopened Positron, so there is no folder open. There is a message on the left reminding me that no folder is open and asking me to open a folder. Is opening a folder always the first step?
+
 ## Working directories
 
-- RStudio projects set your working directory to be the root of the project (i.e. where you find the `.Rproj` file)
+- Positron (and RStudio) projects set your working directory to be the root of the project
 
 - Using a project, you only need to use **relative** file paths, not **absolute** file paths
 
 - This is easier to type and more reproducible
-
-## .Rdata and .Rhistory files {.inverse}
-
-## Keyboard shortcut to run code
-
-- command + enter (Mac)
-- control + enter (Windows)
-
-## Difference between native pipe and tidyverse pipe
-
-> Why is there a new native pipe in R, and what is the reason we are using the new native pipe vs. the tidyverse pipe in this course? I currently use the tidyverse pipe in my day-to-day work, so am just curious about whether I should be thinking about switching which pipe I use in that context, too.
 
 ## What is the ideal maximum pipeline length?
 
@@ -258,11 +253,11 @@ penguins |>
 
 - SPSS has named NA values
 
-- In R, a value is only NA if it shows up in red (in the console) or light gray (in Quarto)
+- In R, a value is only NA if it shows up in red (in the console) or light gray (in the data viewer)
 
 ## How R handles NA values
 
-You'll learn later to use functions from the `tidyr` package to deal with missing values:
+You'll learn later to use functions from the {tidyr} package to deal with missing values:
 
 - `replace_na()` will replace existing `NA` values with your chosen values
 
@@ -330,7 +325,7 @@ penguins <- read_csv(file = "data-raw/penguins.csv")
 
 ## Rounding
 
-> I went a step further by wanting to round my average and drop the decimals ( I noticed some decimal places in my answer). I used mutate and round to change it, but is there any easier or simpler way to format it?
+> I went a step further by wanting to round my average and drop the decimals (I noticed some decimal places in my answer). I used mutate and round to change it, but is there any easier or simpler way to format it?
 
 . . .
 
@@ -343,15 +338,10 @@ penguins |>
   mutate(mean_body_mass = round(mean_body_mass, digits = 0))
 ```
 
-## How to See All Variables
+# Air code formatter
 
-```{r}
-penguins
-```
+![](https://posit-dev.github.io/air/images/air.png){fig-align="center"}
 
-::: {.notes}
-Show glimpse() and view() and how to popup data by clicking on it
-:::
 
 # Typos happen to everone
 
@@ -383,7 +373,7 @@ get_acs(
 
 # Weekly coach tips
 
-1. Do **not** use generative AI!
+1. Focus on mastering the basics before reaching for AI
 
 1. Don't be afraid to submit your assignments.
 

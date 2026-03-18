@@ -6,8 +6,8 @@
 <script src="slides-week-02_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides-week-02_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides-week-02_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-02_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+<link href="slides-week-02_files/libs/quarto-html/quarto-syntax-highlighting-6d4e4c6c342646cac9792aff734a6985.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.33">
 
   <title>R in 3 Months Week 2 (Data Wrangling and Analysis)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="slides-week-02_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides-week-02_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -94,7 +97,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides-week-02_files/libs/revealjs/dist/theme/quarto-60f888cd3db5145ade4b8c62980eae51.css">
+  <link rel="stylesheet" href="slides-week-02_files/libs/revealjs/dist/theme/quarto-904b9709d6858400bccbddab514e9f21.css">
   <link href="slides-week-02_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides-week-02_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides-week-02_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -206,7 +209,7 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
-<li class="fragment"><p>Review of <code>dplyr</code> Functions</p></li>
+<li class="fragment"><p>Review of {dplyr} Functions</p></li>
 <li class="fragment"><p>Common Issues and Your Questions</p></li>
 <li class="fragment"><p>Weekly Coach Tips</p></li>
 <li class="fragment"><p>Next Week</p></li>
@@ -230,9 +233,6 @@
 <section id="housekeeping" class="title-slide slide level1 inverse center">
 <h1>Housekeeping</h1>
 
-</section>
-<section id="zoom-links" class="slide level2 inverse center">
-<h2>Zoom Links</h2>
 </section>
 <section id="discord" class="slide level2 inverse center">
 <h2>Discord</h2>
@@ -258,7 +258,7 @@
 <section id="cheatsheets" class="slide level2 center">
 <h2>Cheatsheets</h2>
 <ul>
-<li class="fragment"><p><a href="https://github.com/rfortherestofus/rin3-fall-2025/blob/main/misc/beginner-cheatsheets.pdf">Posit Cheatsheets</a></p></li>
+<li class="fragment"><p><a href="https://github.com/rfortherestofus/rin3-spring-2026/blob/main/misc/beginner-cheatsheets.pdf">Posit Cheatsheets</a></p></li>
 <li class="fragment"><p><a href="https://cheatsheets.rfortherestofus.com/cheatsheets-rin3.html">R for the Rest of Us Cheatsheets</a></p></li>
 </ul>
 </section></section>
@@ -334,8 +334,10 @@
 </section>
 <section id="the-.by-argument-in-summarize" class="slide level2 center">
 <h2>The <code>.by</code> argument in summarize()</h2>
-<aside class="notes">
+<blockquote>
 <p>An observation that I am curious about: The group_by with two variables appears to sort the tibble by the first variable alphabetically (island), while the alternative method David showed (i.e., the .by) sorts it by the year in the tibble. Is this always the case or was this simply by chance that this change in sorting of the summary tibble occured?</p>
+</blockquote>
+<aside class="notes">
 <ul>
 <li>.by argument keeps original order</li>
 <li>group_by() changes order to alphabetical</li>
@@ -352,6 +354,12 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="summarize-1" class="slide level2 center">
+<h2><code>summarize()</code></h2>
+<blockquote>
+<p>What is the benefit of using arithmetic functions like <code>sum()</code>, <code>mean()</code>, <code>average()</code>, or <code>count()</code> inside <code>summarize()</code> instead of using these functions on their own? Is it because <code>summarize()</code> allows you to compute multiple summary statistics at once and organize them more efficiently?</p>
+</blockquote>
+</section>
 <section id="how-to-import-excel-files" class="slide level2 center">
 <h2>How to Import Excel Files</h2>
 <div class="fragment">
@@ -365,7 +373,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
@@ -373,7 +381,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -388,7 +396,7 @@
 </blockquote>
 <aside class="notes">
 <ul>
-<li>Give tour of what it was like before RStudio</li>
+<li>Give tour of what it was like before RStudio/Positron</li>
 <li>Talk about relative vs absolute file paths</li>
 <li>Talk about reproducibility for others if you use absolute file paths</li>
 </ul>
@@ -404,29 +412,19 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="projects" class="slide level2 center">
+<h2>Projects</h2>
+<blockquote>
+<p>I started this video after I closed and reopened Positron, so there is no folder open. There is a message on the left reminding me that no folder is open and asking me to open a folder. Is opening a folder always the first step?</p>
+</blockquote>
+</section>
 <section id="working-directories" class="slide level2 center">
 <h2>Working directories</h2>
 <ul>
-<li class="fragment"><p>RStudio projects set your working directory to be the root of the project (i.e.&nbsp;where you find the <code>.Rproj</code> file)</p></li>
+<li class="fragment"><p>Positron (and RStudio) projects set your working directory to be the root of the project</p></li>
 <li class="fragment"><p>Using a project, you only need to use <strong>relative</strong> file paths, not <strong>absolute</strong> file paths</p></li>
 <li class="fragment"><p>This is easier to type and more reproducible</p></li>
 </ul>
-</section>
-<section id="rdata-and-.rhistory-files" class="slide level2 inverse center">
-<h2>.Rdata and .Rhistory files</h2>
-</section>
-<section id="keyboard-shortcut-to-run-code" class="slide level2 center">
-<h2>Keyboard shortcut to run code</h2>
-<ul>
-<li class="fragment">command + enter (Mac)</li>
-<li class="fragment">control + enter (Windows)</li>
-</ul>
-</section>
-<section id="difference-between-native-pipe-and-tidyverse-pipe" class="slide level2 center">
-<h2>Difference between native pipe and tidyverse pipe</h2>
-<blockquote>
-<p>Why is there a new native pipe in R, and what is the reason we are using the new native pipe vs.&nbsp;the tidyverse pipe in this course? I currently use the tidyverse pipe in my day-to-day work, so am just curious about whether I should be thinking about switching which pipe I use in that context, too.</p>
-</blockquote>
 </section>
 <section id="what-is-the-ideal-maximum-pipeline-length" class="slide level2 center">
 <h2>What is the ideal maximum pipeline length?</h2>
@@ -460,13 +458,13 @@
 <h2>Parentheses matter (a lot!)</h2>
 <p>What’s the logic for the “-” (minus) in the second solution below being in its own parenthesis but it’s not in the first solution? That tripped me up.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>(bill_length_mm<span class="sc">:</span>body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>(bill_length_mm<span class="sc">:</span>body_mass_g))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -495,18 +493,18 @@
 <section id="select-issues" class="slide level2 center">
 <h2><code>select()</code> issues</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>island<span class="sc">:</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>island<span class="sc">:</span>year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="dv">1</span>, island<span class="sc">:</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="dv">1</span>, island<span class="sc">:</span>year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>Does not remove the “species” variable but this does:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href=""></a>  <span class="fu">select</span>(island<span class="sc">:</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href=""></a>  <span class="fu">select</span>(island<span class="sc">:</span>year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -514,12 +512,12 @@
 <h2>How R handles NA values</h2>
 <ul>
 <li class="fragment"><p>SPSS has named NA values</p></li>
-<li class="fragment"><p>In R, a value is only NA if it shows up in red (in the console) or light gray (in Quarto)</p></li>
+<li class="fragment"><p>In R, a value is only NA if it shows up in red (in the console) or light gray (in the data viewer)</p></li>
 </ul>
 </section>
 <section id="how-r-handles-na-values-1" class="slide level2 center">
 <h2>How R handles NA values</h2>
-<p>You’ll learn later to use functions from the <code>tidyr</code> package to deal with missing values:</p>
+<p>You’ll learn later to use functions from the {tidyr} package to deal with missing values:</p>
 <ul>
 <li class="fragment"><p><code>replace_na()</code> will replace existing <code>NA</code> values with your chosen values</p></li>
 <li class="fragment"><p><code>na_if()</code> will replace values you specify with <code>NA</code></p></li>
@@ -552,72 +550,58 @@
 <section id="needed-to-refer-to-non-existent-things" class="slide level2 center">
 <h2>Needed to refer to non-existent things</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="not-needed-to-refer-to-existing-things" class="slide level2 center">
 <h2>Not needed to refer to existing things</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p><br></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href=""></a>  <span class="fu">select</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">select</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="needed-when-youre-referring-to-text" class="slide level2 center">
 <h2>Needed when you’re referring to text</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Torgersen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Torgersen"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="or-the-name-of-a-file" class="slide level2 center">
 <h2>Or the name of a file</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data-raw/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data-raw/penguins.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="rounding" class="slide level2 center">
 <h2>Rounding</h2>
 <blockquote>
-<p>I went a step further by wanting to round my average and drop the decimals ( I noticed some decimal places in my answer). I used mutate and round to change it, but is there any easier or simpler way to format it?</p>
+<p>I went a step further by wanting to round my average and drop the decimals (I noticed some decimal places in my answer). I used mutate and round to change it, but is there any easier or simpler way to format it?</p>
 </blockquote>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Biscoe"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb13-3"><a href=""></a>  <span class="fu">drop_na</span>(body_mass_g, sex) <span class="sc">|&gt;</span></span>
 <span id="cb13-4"><a href=""></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span></span>
 <span id="cb13-5"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">mean_body_mass =</span> <span class="fu">mean</span>(body_mass_g)) <span class="sc">|&gt;</span></span>
-<span id="cb13-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">mean_body_mass =</span> <span class="fu">round</span>(mean_body_mass, <span class="at">digits =</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">mean_body_mass =</span> <span class="fu">round</span>(mean_body_mass, <span class="at">digits =</span> <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-</section>
-<section id="how-to-see-all-variables" class="slide level2 center">
-<h2>How to See All Variables</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<aside class="notes">
-<p>Show glimpse() and view() and how to popup data by clicking on it</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
+<section id="air-code-formatter" class="title-slide slide level1 center">
+<h1>Air code formatter</h1>
+
+<img data-src="https://posit-dev.github.io/air/images/air.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+
 <section id="typos-happen-to-everone" class="title-slide slide level1 center">
 <h1>Typos happen to everone</h1>
 
@@ -627,20 +611,20 @@
 <h1>Typos happen to everone</h1>
 <div class="large">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">get_acs</span>(</span>
-<span id="cb15-2"><a href=""></a>  <span class="at">year =</span> <span class="dv">2019</span>,</span>
-<span id="cb15-3"><a href=""></a>  <span class="at">geography =</span> <span class="st">"county"</span>,</span>
-<span id="cb15-4"><a href=""></a>  <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb15-5"><a href=""></a>  <span class="at">state =</span> <span class="st">"OR"</span>,</span>
-<span id="cb15-6"><a href=""></a>  <span class="at">variables =</span> <span class="st">"B01003_001"</span></span>
-<span id="cb15-7"><a href=""></a>) <span class="sc">|&gt;</span></span>
-<span id="cb15-8"><a href=""></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb15-10"><a href=""></a>  <span class="fu">rename</span>(</span>
-<span id="cb15-11"><a href=""></a>    <span class="at">poulation =</span> estimate,</span>
-<span id="cb15-12"><a href=""></a>    <span class="at">county =</span> name</span>
-<span id="cb15-13"><a href=""></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb15-14"><a href=""></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">get_acs</span>(</span>
+<span id="cb14-2"><a href=""></a>  <span class="at">year =</span> <span class="dv">2019</span>,</span>
+<span id="cb14-3"><a href=""></a>  <span class="at">geography =</span> <span class="st">"county"</span>,</span>
+<span id="cb14-4"><a href=""></a>  <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-5"><a href=""></a>  <span class="at">state =</span> <span class="st">"OR"</span>,</span>
+<span id="cb14-6"><a href=""></a>  <span class="at">variables =</span> <span class="st">"B01003_001"</span></span>
+<span id="cb14-7"><a href=""></a>) <span class="sc">|&gt;</span></span>
+<span id="cb14-8"><a href=""></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb14-10"><a href=""></a>  <span class="fu">rename</span>(</span>
+<span id="cb14-11"><a href=""></a>    <span class="at">poulation =</span> estimate,</span>
+<span id="cb14-12"><a href=""></a>    <span class="at">county =</span> name</span>
+<span id="cb14-13"><a href=""></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb14-14"><a href=""></a>  <span class="fu">select</span>(county, population)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -648,7 +632,7 @@
 <section id="weekly-coach-tips" class="title-slide slide level1 center">
 <h1>Weekly coach tips</h1>
 <ol type="1">
-<li class="fragment"><p>Do <strong>not</strong> use generative AI!</p></li>
+<li class="fragment"><p>Focus on mastering the basics before reaching for AI</p></li>
 <li class="fragment"><p>Don’t be afraid to submit your assignments.</p></li>
 </ol>
 </section>
@@ -850,7 +834,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -962,13 +946,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
