@@ -36,6 +36,8 @@ Please put your answer in the chat!
 
 1. Housekeeping
 
+1. ggplot
+
 1. Data viz questions
 
 1. Data viz exercise
@@ -51,14 +53,31 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-03.html
 
 ## Housekeeping
 
-- We are working on getting email notifications when you **submit** assignments
+- Live session during catch-up week (April 9) on using AI with R. Email us your questions!
+
+::: {.notes}
+We'll discuss in live session: 
+
+- Various ways to use AI (fix + explain, Positron Assistant, Posit Assistant, Claude Code, etc)
+- AI + data privacy
+:::
+
+# ggplot {.inverse}
+
+---
+
+![](assets/gas-prices.png)
+
+::: {.notes}
+https://www.nytimes.com/2026/03/18/upshot/gas-prices-lookup.html
+:::
 
 # Data Viz Questions {.inverse}
 
 ## `==` and lowercase `x` and `y`
 
 ```{r}
-penguins |> 
+penguins |>
   filter(species == "Gentoo")
 ```
 
@@ -77,48 +96,16 @@ ggplot(
 
 ## Color vs fill
 
-> Why is it that the color= option is treated differently by geom_point and geom_col? The logic seems inconsistent here since "color=" is used as if it is "fill =" by geom_point. What if I want the scatter plot to have black dots with outline color different by island?
-
-## Applying values specific color/fill properties
-
-> When using scale_color_manual, do you need to specify the order in which colors are applied to a certain category? I assume it matters. How will I know which colors are being applied to specific data?
-
-::: {.notes}
-https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/setting-color-and-fill-scales#comments
-:::
-
-## `geom_bar()` vs `geom_col()`
-
-![](assets/geom-bar-col-question-part-1.png)
-
-## `geom_bar()` vs `geom_col()`
-
-![](assets/geom-bar-col-question-part-2.png)
-
-## `geom_bar()` vs `geom_col()`
-
-:::: {.columns}
-
-::: {.column width="50%"}
-![](assets/geom-bar-col-question-part-1.png)
-:::
-
-::: {.column width="50%"}
-![](assets/geom-bar-col-question-part-2.png)
-:::
-
-::::
+> Why is it that the `color=` option is treated differently by `geom_point` and `geom_col`? The logic seems inconsistent here since `color=` is used as if it is `fill=` by `geom_point`. What if I want the scatter plot to have black dots with outline color different by island?
 
 ## Is there a "correct" order to put geoms, scales, themes, etc? {.inverse}
-
-## Dropping points in scatterplots {.inverse}
 
 ## Width of bars in bar charts {.inverse}
 
 ## Reordering bar charts {.inverse}
 
 ::: {.notes}
-https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/reorder-plots-to-highlight-findings-v2
+https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/reorder-plots-to-highlight-findings-positron
 :::
 
 ## Wrapping long text in charts {.inverse}
@@ -130,7 +117,8 @@ https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/reorder-plot
 ![](assets/median-income-example.png)
 
 ::: notes
-https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2025/refs/heads/main/misc/median-income-viz.R
+- https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2025/refs/heads/main/misc/median-income-viz.R
+- https://graciellehigino.quarto.pub/rin3-data-viz-exercise-yamhill-income/
 :::
 
 # Next Week

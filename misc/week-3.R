@@ -19,16 +19,13 @@ penguins_by_species <-
 # `==` and lowercase `x` and `y` ------------------------------------------
 
 ggplot(
-  data = penguins,
-  # why can't I use == within this function?
+  data = penguins, # why can't I use == within this function?
   mapping = aes(
-    x = flipper_length_mm,
-    # must be lowercase x and y
+    x = flipper_length_mm, # must be lowercase x and y
     y = body_mass_g
   )
 ) +
   geom_point()
-
 
 
 # Color vs Fill ----------------------------------------------------------
@@ -88,51 +85,6 @@ ggplot(
   )
 ) +
   geom_col()
-
-# Applying values specific color/fill properties -------------------------
-
-ggplot(
-  data = penguins_by_species,
-  mapping = aes(
-    x = species,
-    y = n,
-    fill = species
-  )
-) +
-  geom_col() +
-  scale_fill_manual(
-    values = c(
-      "Adelie" = "green",
-      "Chinstrap" = "red",
-      "Gentoo" = "orange"
-    )
-  )
-
-# Dropping Points in Scatterplots ----------------------------------------
-
-ggplot(
-  data = penguins,
-  mapping = aes(
-    x = flipper_length_mm,
-    y = body_mass_g
-  )
-) +
-  geom_point() +
-  scale_x_continuous(limits = c(170, 200))
-
-penguins_filtered <-
-  penguins |>
-  drop_na(flipper_length_mm, body_mass_g) |>
-  filter(flipper_length_mm < 200)
-
-ggplot(
-  data = penguins_filtered,
-  mapping = aes(
-    x = flipper_length_mm,
-    y = body_mass_g
-  )
-) +
-  geom_point()
 
 # Bar Chart Width ---------------------------------------------------------
 
@@ -236,41 +188,3 @@ gapminder |>
   geom_line() +
   facet_wrap(vars(country_wrapped)) +
   theme(axis.text.x = element_blank())
-
-
-ggplot(
-  data = penguins,
-  mapping = aes(
-    x = flipper_length_mm,
-    y = body_mass_g,
-    color = flipper_length_mm,
-    size = flipper_length_mm
-  )
-) +
-  geom_point() 
-
-gapminder |> 
-  filter(country == "Afghanistan") |>  
-  mutate(year = as.character(year)) |> 
-ggplot(
-  aes(
-    x = year,
-    y = lifeExp,
-    fill = year
-  )
-) +
-  geom_col()
-
-penguins |> 
-  count(species) |> 
-  mutate(pct = n / sum(n)) |> 
-  ggplot(
-    aes(
-      y = pct,
-      x = 1,
-      fill = species,
-      label = pct
-    )
-  ) +
-  geom_col() +
-  geom_text(position = position_stack(vjust = 0.5))

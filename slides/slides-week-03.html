@@ -6,8 +6,8 @@
 <script src="slides-week-03_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides-week-03_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides-week-03_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-03_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+<link href="slides-week-03_files/libs/quarto-html/quarto-syntax-highlighting-6d4e4c6c342646cac9792aff734a6985.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.33">
 
   <title>R in 3 Months Week 3 (Data Visualization)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="slides-week-03_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides-week-03_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -94,7 +97,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides-week-03_files/libs/revealjs/dist/theme/quarto-60f888cd3db5145ade4b8c62980eae51.css">
+  <link rel="stylesheet" href="slides-week-03_files/libs/revealjs/dist/theme/quarto-904b9709d6858400bccbddab514e9f21.css">
   <link href="slides-week-03_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides-week-03_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides-week-03_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -206,6 +209,7 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
+<li class="fragment"><p>ggplot</p></li>
 <li class="fragment"><p>Data viz questions</p></li>
 <li class="fragment"><p>Data viz exercise</p></li>
 <li class="fragment"><p>Next week</p></li>
@@ -233,8 +237,47 @@
 <section id="housekeeping-1" class="slide level2 center">
 <h2>Housekeeping</h2>
 <ul>
-<li class="fragment">We are working on getting email notifications when you <strong>submit</strong> assignments</li>
+<li class="fragment">Live session during catch-up week (April 9) on using AI with R. Email us your questions!</li>
 </ul>
+<aside class="notes">
+<p>We’ll discuss in live session:</p>
+<ul>
+<li>Various ways to use AI (fix + explain, Positron Assistant, Posit Assistant, Claude Code, etc)</li>
+<li>AI + data privacy</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="ggplot" class="title-slide slide level1 inverse center">
+<h1>ggplot</h1>
+
+</section>
+<section class="slide level2 center">
+
+
+<img data-src="assets/gas-prices.png" class="r-stretch"><aside class="notes">
+<p>https://www.nytimes.com/2026/03/18/upshot/gas-prices-lookup.html</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="data-viz-questions" class="title-slide slide level1 inverse center">
@@ -244,8 +287,8 @@
 <section id="and-lowercase-x-and-y" class="slide level2 center">
 <h2><code>==</code> and lowercase <code>x</code> and <code>y</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href=""></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href=""></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 124 × 8
    species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -265,64 +308,25 @@
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ggplot</span>(</span>
 <span id="cb3-2"><a href=""></a>  <span class="at">data =</span> penguins, <span class="co"># why can't I use == within this function?</span></span>
 <span id="cb3-3"><a href=""></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
 <span id="cb3-4"><a href=""></a>    <span class="at">x =</span> flipper_length_mm, <span class="co"># must be lowercase x and y</span></span>
 <span id="cb3-5"><a href=""></a>    <span class="at">y =</span> body_mass_g</span>
 <span id="cb3-6"><a href=""></a>  )</span>
 <span id="cb3-7"><a href=""></a>) <span class="sc">+</span></span>
-<span id="cb3-8"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-8"><a href=""></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides-week-03_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="color-vs-fill" class="slide level2 center">
 <h2>Color vs fill</h2>
 <blockquote>
-<p>Why is it that the color= option is treated differently by geom_point and geom_col? The logic seems inconsistent here since “color=” is used as if it is “fill =” by geom_point. What if I want the scatter plot to have black dots with outline color different by island?</p>
+<p>Why is it that the <code>color=</code> option is treated differently by <code>geom_point</code> and <code>geom_col</code>? The logic seems inconsistent here since <code>color=</code> is used as if it is <code>fill=</code> by <code>geom_point</code>. What if I want the scatter plot to have black dots with outline color different by island?</p>
 </blockquote>
-</section>
-<section id="applying-values-specific-colorfill-properties" class="slide level2 center">
-<h2>Applying values specific color/fill properties</h2>
-<blockquote>
-<p>When using scale_color_manual, do you need to specify the order in which colors are applied to a certain category? I assume it matters. How will I know which colors are being applied to specific data?</p>
-</blockquote>
-<aside class="notes">
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/setting-color-and-fill-scales#comments</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="geom_bar-vs-geom_col" class="slide level2 center">
-<h2><code>geom_bar()</code> vs <code>geom_col()</code></h2>
-
-<img data-src="assets/geom-bar-col-question-part-1.png" class="r-stretch"></section>
-<section id="geom_bar-vs-geom_col-1" class="slide level2 center">
-<h2><code>geom_bar()</code> vs <code>geom_col()</code></h2>
-
-<img data-src="assets/geom-bar-col-question-part-2.png" class="r-stretch"></section>
-<section id="geom_bar-vs-geom_col-2" class="slide level2 center">
-<h2><code>geom_bar()</code> vs <code>geom_col()</code></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img data-src="assets/geom-bar-col-question-part-1.png"></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="assets/geom-bar-col-question-part-2.png"></p>
-</div></div>
 </section>
 <section id="is-there-a-correct-order-to-put-geoms-scales-themes-etc" class="slide level2 inverse center">
 <h2>Is there a “correct” order to put geoms, scales, themes, etc?</h2>
-</section>
-<section id="dropping-points-in-scatterplots" class="slide level2 inverse center">
-<h2>Dropping points in scatterplots</h2>
 </section>
 <section id="width-of-bars-in-bar-charts" class="slide level2 inverse center">
 <h2>Width of bars in bar charts</h2>
@@ -330,7 +334,7 @@
 <section id="reordering-bar-charts" class="slide level2 inverse center">
 <h2>Reordering bar charts</h2>
 <aside class="notes">
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/reorder-plots-to-highlight-findings-v2</p>
+<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/reorder-plots-to-highlight-findings-positron</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -355,7 +359,10 @@
 <h2>Data Viz Exercise</h2>
 
 <img data-src="assets/median-income-example.png" class="r-stretch"><aside class="notes">
-<p>https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2025/refs/heads/main/misc/median-income-viz.R</p>
+<ul>
+<li>https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2025/refs/heads/main/misc/median-income-viz.R</li>
+<li>https://graciellehigino.quarto.pub/rin3-data-viz-exercise-yamhill-income/</li>
+</ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -566,7 +573,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -678,13 +685,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
