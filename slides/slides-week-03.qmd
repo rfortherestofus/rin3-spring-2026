@@ -53,9 +53,17 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-03.html
 
 ## Housekeeping
 
+- RStudio
+
 - Live session during catch-up week (April 9) on using AI with R. Email us your questions!
 
 ::: {.notes}
+RStudio
+
+- Not going away (similar to RMarkdown vs Quarto)
+- Posit surprised by continued use so made Posit Assistant
+- Nothing wrong with using it
+
 We'll discuss in live session: 
 
 - Various ways to use AI (fix + explain, Positron Assistant, Posit Assistant, Claude Code, etc)
