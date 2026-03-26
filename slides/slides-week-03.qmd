@@ -53,6 +53,8 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-03.html
 
 ## Housekeeping
 
+- Videos for from second half of course are being added this week
+
 - RStudio
 
 - Live session during catch-up week (April 9) on using AI with R. Email us your questions!

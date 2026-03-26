@@ -38,7 +38,7 @@ ggplot(
     color = island
   )
 ) +
-  geom_point()
+  geom_point(shape = 11)
 
 
 ggplot(
@@ -56,12 +56,13 @@ ggplot(
   aes(
     x = flipper_length_mm,
     y = body_mass_g,
-    color = island
+    fill = island
   )
 ) +
   geom_point(
     shape = 21,
-    fill = "orange"
+    color = "white",
+    alpha = 0.75
   )
 
 
@@ -94,17 +95,11 @@ ggplot(
     x = island,
     y = mean_bill_length,
     label = mean_bill_length,
-    color = island
+    fill = island
   )
 ) +
-  geom_col(width = 0.5) +
+  geom_col() +
   theme_minimal()
-
-ggplot(
-  data = penguins,
-  aes(x = bill_length_mm)
-) +
-  geom_histogram(binwidth = 1)
 
 # Reordering Bar Charts ---------------------------------------------------
 
@@ -126,17 +121,21 @@ ggplot(
     fill = species
   )
 ) +
-  geom_col()
+  geom_col() +
+  labs(x = NULL)
 
 penguins_by_species_reordered <-
   penguins_by_species |>
-  arrange(n)
+  mutate(species = fct(species, levels = c("Adelie", "Chinstrap", "Gentoo")))
+
+penguins_by_species_reordered
+
 # mutate(species = fct(species, levels = c("Adelie", "Chinstrap", "Gentoo")))
 # mutate(species = fct_reorder(species, n)) |>
 # mutate(species = fct_rev(species))
 
 ggplot(
-  data = penguins_by_species,
+  data = penguins_by_species_reordered,
   mapping = aes(
     x = species,
     y = n,
