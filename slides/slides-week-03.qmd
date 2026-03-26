@@ -66,7 +66,7 @@ We'll discuss in live session:
 
 ---
 
-![](assets/gas-prices.png)
+[![](assets/gas-prices.png)](https://www.nytimes.com/2026/03/18/upshot/gas-prices-lookup.html)
 
 ::: {.notes}
 https://www.nytimes.com/2026/03/18/upshot/gas-prices-lookup.html
@@ -76,13 +76,18 @@ https://www.nytimes.com/2026/03/18/upshot/gas-prices-lookup.html
 
 ## `==` and lowercase `x` and `y`
 
+. . .
+
 ```{r}
+#| eval: false
 penguins |>
   filter(species == "Gentoo")
 ```
 
+. . .
 
 ```{r}
+#| eval: false
 ggplot(
   data = penguins, # why can't I use == within this function?
   mapping = aes(
@@ -117,7 +122,7 @@ https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/reorder-pl
 ![](assets/median-income-example.png)
 
 ::: notes
-- https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2025/refs/heads/main/misc/median-income-viz.R
+- https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2026/refs/heads/main/misc/median-income-viz.R
 - https://graciellehigino.quarto.pub/rin3-data-viz-exercise-yamhill-income/
 :::
 

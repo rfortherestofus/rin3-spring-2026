@@ -13,7 +13,7 @@ library(tidyverse)
 
 median_income_yamhill <-
   read_csv(
-    "https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2024/main/data-raw/oregon-median-income-by-county.csv"
+    "https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2026/main/data-raw/oregon-median-income-by-county.csv"
   ) |>
   filter(geography %in% c("Yamhill", "Oregon"))
 
