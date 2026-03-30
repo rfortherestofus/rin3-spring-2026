@@ -1,10 +1,11 @@
 # Your job is to update the TODOs below to recreate this visualization
 # https://show.rfor.us/4MwDlgt2
 
-# A couple notes:
+# A few notes:
 # 1. The house icon was added outside of R. Don't worry about adding it.
-# 2. The colors you can use to get close to the viz are "darkgreen" and "gray"
-# 3. Don't worry about adding the Median Household Income title
+# 2. The colors you can use to get close to the viz are "darkgreen" and "gray".
+# 3. Don't worry about adding the Median Household Income title.
+# 4. The text label for Yamhill and Oregon is done for you. You only need to add the amount labels.
 
 # This is part of Oregon by the Numbers
 # See https://www.tfff.org/oregon-numbers/
