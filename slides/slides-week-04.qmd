@@ -50,7 +50,9 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-04.html
 
 # Housekeeping
 
-1.  Next week is a catch-up week: optional live session on AI
+1. Next week is a catch-up week: optional live session on AI
+
+1. Updated cheatsheets will be ready soon
 
 # Questions on Data Wrangling or Data Viz? {.inverse}
 
