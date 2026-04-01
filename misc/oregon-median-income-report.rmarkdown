@@ -17,7 +17,7 @@ library(scales)
 ```{r}
 county_to_filter <- params$county
 
-median_income <- read_csv("https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/data-raw/oregon-median-income-by-county.csv")
+median_income <- read_csv("https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2026/main/data-raw/oregon-median-income-by-county.csv")
 
 median_income_filtered <- median_income |>
   filter(geography %in% c(county_to_filter, "Oregon"))

@@ -6,8 +6,8 @@
 <script src="slides-week-04_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides-week-04_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides-week-04_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-04_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+<link href="slides-week-04_files/libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.0">
 
   <title>R in 3 Months Week 4 (Quarto)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="slides-week-04_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides-week-04_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -94,7 +97,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides-week-04_files/libs/revealjs/dist/theme/quarto-60f888cd3db5145ade4b8c62980eae51.css">
+  <link rel="stylesheet" href="slides-week-04_files/libs/revealjs/dist/theme/quarto-904b9709d6858400bccbddab514e9f21.css">
   <link href="slides-week-04_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides-week-04_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides-week-04_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -229,7 +232,7 @@
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
 <ol type="1">
-<li class="fragment">Next week is a catch-up week: no live session or co-working session</li>
+<li class="fragment">Next week is a catch-up week: optional live session on AI</li>
 </ol>
 </section>
 
@@ -245,19 +248,6 @@
 </blockquote>
 <div class="fragment">
 <p><img data-src="assets/where-does-data-live.png"></p>
-<aside class="notes">
-<p>You learned this week to change your settings so that you only have objects when you run code to create them</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="when-is-data-real-1" class="slide level2 center">
@@ -266,19 +256,6 @@
 <img data-src="https://rstats.wtf/img/if-you-liked-it-you-should-have-saved-the-source-for-it.jpg" class="r-stretch"><div class="small">
 <p>Source: <a href="https://rstats.wtf/source-and-blank-slates">rstats.wtf</a></p>
 </div>
-<aside class="notes">
-<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2025/lessons/an-important-workflow-tip-v2</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section id="quarto" class="title-slide slide level1 inverse center">
 <h1>Quarto</h1>
@@ -314,6 +291,21 @@
 <h1>Quarto Tips</h1>
 
 </section>
+<section id="tinytex" class="slide level2 center">
+<h2>{tinytex}</h2>
+<p>If you get an error about not being able to render a PDF document, install the {tinytex} package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">'tinytex'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Then load {tinytex} and run the <code>install_tinytex()</code> function:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(tinytex)</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a><span class="fu">install_tinytex</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
 <section id="markdown-text-shows-up-in-many-places" class="slide level2 inverse center">
 <h2>Markdown Text Shows Up in Many Places!</h2>
 <aside class="notes">
@@ -343,7 +335,7 @@
 <li class="fragment"><p>I also do data cleaning/tidying in a separate R script file (you’ll learn about this soon)</p></li>
 </ol>
 <aside class="notes">
-<p>Show state immunization reports: https://github.com/claritydatastudio/state-immunization-reports</p>
+<p>Show state immunization reports: https://publichealth.jhu.edu/ivac/resources/reports/monitoring-childhood-immunization-at-the-state-level</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -370,37 +362,34 @@
 <section id="how-to-change-the-size-of-plots-in-quarto-documents" class="slide level2 center">
 <h2>How to change the size of plots in Quarto documents</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href=""></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb1-4"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides-week-04_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="how-to-change-the-size-of-plots-in-quarto-documents-1" class="slide level2 center">
-<h2>How to change the size of plots in Quarto documents</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href=""></a><span class="co">#| echo: true</span></span>
-<span id="cb2-3"><a href=""></a><span class="co">#| fig-height: 1</span></span>
-<span id="cb2-4"><a href=""></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb2-5"><a href=""></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span> </span>
-<span id="cb2-6"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, </span>
-<span id="cb2-7"><a href=""></a>             <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb2-8"><a href=""></a>  <span class="fu">geom_col</span>()</span>
-<span id="cb2-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="how-to-change-the-size-of-plots-in-quarto-documents-2" class="slide level2 center">
-<h2>How to change the size of plots in Quarto documents</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a href=""></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
 <span id="cb3-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides-week-04_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="how-to-change-the-size-of-plots-in-quarto-documents-1" class="slide level2 center">
+<h2>How to change the size of plots in Quarto documents</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co">#| fig-height: 1</span></span>
+<span id="cb4-2"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb4-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island,</span>
+<span id="cb4-5"><a href=""></a>             <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb4-6"><a href=""></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides-week-04_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="how-to-make-multi-column-layouts-in-quarto-documents" class="slide level2 center">
 <h2>How to make multi-column layouts in Quarto documents</h2>
 <div class="fragment">
@@ -428,32 +417,38 @@
 <section id="how-to-make-multi-column-layouts-in-quarto-documents-1" class="slide level2 center">
 <h2>How to make multi-column layouts in Quarto documents</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a>:::: {.columns}</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a>::: {.column width="50%"}</span>
-<span id="cb4-4"><a href=""></a>Column 1</span>
-<span id="cb4-5"><a href=""></a>:::</span>
-<span id="cb4-6"><a href=""></a></span>
-<span id="cb4-7"><a href=""></a>::: {.column width="50%"}</span>
-<span id="cb4-8"><a href=""></a>Column 2</span>
-<span id="cb4-9"><a href=""></a>:::</span>
-<span id="cb4-10"><a href=""></a></span>
-<span id="cb4-11"><a href=""></a>::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href=""></a>:::: {.columns}</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a>::: {.column width="50%"}</span>
+<span id="cb5-4"><a href=""></a>Column 1</span>
+<span id="cb5-5"><a href=""></a>:::</span>
+<span id="cb5-6"><a href=""></a></span>
+<span id="cb5-7"><a href=""></a>::: {.column width="50%"}</span>
+<span id="cb5-8"><a href=""></a>Column 2</span>
+<span id="cb5-9"><a href=""></a>:::</span>
+<span id="cb5-10"><a href=""></a></span>
+<span id="cb5-11"><a href=""></a>::::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="how-to-change-the-look-and-feel-of-quarto-documents" class="slide level2 center">
+<section id="how-to-change-the-look-and-feel-of-quarto-documents" class="slide level2 inverse center">
+<h2>How to change the look and feel of Quarto documents</h2>
+</section>
+<section id="brand.yml" class="slide level2 center">
+<h2><code>brand.yml</code></h2>
+
+<img data-src="assets/brandyml.png" class="r-stretch"></section>
+<section id="how-to-change-the-look-and-feel-of-quarto-documents-1" class="slide level2 center">
 <h2>How to change the look and feel of Quarto documents</h2>
 <ul>
 <li class="fragment"><p>Depends on output format</p></li>
-<li class="fragment"><p>For HTML, <a href="https://quarto.org/docs/output-formats/html-themes.html">use a combination of themes and custom CSS</a></p></li>
+<li class="fragment"><p>For HTML, <a href="https://quarto.org/docs/output-formats/html-themes.html">use a combination of <code>brand.yml</code>, themes, and custom CSS</a></p></li>
 <li class="fragment"><p>For Word, use <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">reference documents</a></p></li>
-<li class="fragment"><p>For PDF, check out <a href="https://quarto.org/docs/output-formats/typst.html"><code>typst</code> format</a></p></li>
+<li class="fragment"><p>For PDF, use <code>brand.yml</code> and check out <a href="https://quarto.org/docs/output-formats/typst.html"><code>typst</code> format</a></p></li>
 <li class="fragment"><p>There are lessons on each of these later in R in 3 Months!</p></li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<h3 class="inverse" id="brand.yml"><code>brand.yml</code></h3>
 <aside class="notes">
 <p>https://posit-dev.github.io/brand-yml/</p>
 <p>https://rfortherestofus.com/2025/06/podcast-episode-27</p>
@@ -476,7 +471,7 @@
 <ul>
 <li>A project with a Quarto file works different than a Quarto project</li>
 <li>For this program, keep your Quarto file on the root directory</li>
-<li>Gracielle will record an extra lesson about that!</li>
+<li>Gracielle recorded an extra lesson about that: https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/quarto-rendering-and-working-directories</li>
 </ul>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -496,7 +491,11 @@
 <section id="next-week" class="title-slide slide level1 center">
 <h1>Next Week</h1>
 <ul>
-<li class="fragment"><p>Catch-up week! No live session or co-working sessions are happening, but please reach out to Gracielle for any help you may need!</p></li>
+<li class="fragment"><p>Catch-up week!</p>
+<ul>
+<li class="fragment"><p>Optional session on AI (send questions!)</p></li>
+<li class="fragment"><p>Reach out to Gracielle for any help you may need!</p></li>
+</ul></li>
 <li class="fragment"><p>For following week, you will be learning about advanced data wrangling, focusing on the concept of tidy data. You can start whenever you would like to!</p></li>
 </ul>
 
@@ -690,7 +689,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -802,13 +801,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
