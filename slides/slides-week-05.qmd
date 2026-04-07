@@ -32,13 +32,9 @@ editor_options:
 
 4. Writing Code
 
-# Agenda
-
 5. Analyzing Data
 
-6. AI for Documentation
-
-7. Next Week
+6. Next Week
 
 ::: notes
 https://rin3spring2026.rfortherestofus.com/slides/slides-week-05.html
@@ -181,9 +177,3 @@ Rebecca Barter talk from posit::conf: https://www.youtube.com/watch?v=1hfu1AvQkL
 ::: notes
 https://posit.co/blog/databot-is-not-a-flotation-device/
 :::
-
-# AI for Documentation {.inverse}
-
-## AI for Documentation
-
-- Use AI to add comments to a file explaining what it does
