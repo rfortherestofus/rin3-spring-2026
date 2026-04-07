@@ -4,13 +4,13 @@ format: html
 ---
 
 ```{r}
-penguins <- read_csv(
-  "https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2026/main/data-raw/penguins.csv"
-)
+library(tidyverse)
 ```
 
 ```{r}
-library(tidyverse)
+penguins <- read_csv(
+  "https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2026/main/data-raw/penguins.csv"
+)
 ```
 
 ```{r}

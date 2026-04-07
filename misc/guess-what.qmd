@@ -12,20 +12,41 @@ library(tidyverse)
 ```
 
 ```{r}
-penguins <- read_csv("https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2026/main/data-raw/penguins.csv")
+penguins <- read_csv(
+  "https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2026/main/data-raw/penguins.csv"
+)
 ```
 
-I'm having trouble getting the plot to show below. What do I need to change to make it show up? 
+Here is some **bold text**.
+
+I'm having trouble getting the plot to show below. What do I need to change to make it show up?
 
 ```{r}
 #| echo: true
-penguins |> 
-  count(island) |> 
-  ggplot(aes(x = island, 
-             y = n)) +
+penguins |>
+  count(island) |>
+  ggplot(aes(x = island, y = n)) +
   geom_col()
 ```
 
-Can you also make a change to hide the code throughout the rendered report? 
+Can you also make a change to hide the code throughout the rendered report?
 
 What if you want to hide the code in the first two code chunks, but keep it in the last one? How could you do that?
+
+:::: {.columns}
+
+::: {.column width="75%"}
+
+```{r}
+penguins |>
+  count(island) |>
+  ggplot(aes(x = island, y = n)) +
+  geom_col()
+```
+:::
+
+::: {.column width="25%"}
+adfakljflksjf
+:::
+
+::::
