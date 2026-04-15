@@ -46,6 +46,12 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-06.html
 
 # Housekeeping {.inverse}
 
+## AI Session
+
+::: {.notes}
+Just use Claude Code
+:::
+
 ## Cheatsheets {.inverse}
 
 ::: {.notes}
@@ -89,6 +95,8 @@ https://r4ds.hadley.nz/data-tidy
 Think about unit of analysis
 
 Try to plot your data and if you can't, it's probably not tidy
+
+Make sure you have latest version of dplyr for recode_values etc functions
 :::
 
 ## Tidy Data Rule #1: Every Column is a Variable {.inverse}

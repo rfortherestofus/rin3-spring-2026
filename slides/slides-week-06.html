@@ -6,8 +6,8 @@
 <script src="slides-week-06_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides-week-06_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides-week-06_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-06_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+<link href="slides-week-06_files/libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.0">
 
   <title>R in 3 Months Week 6 (Tidy Data)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="slides-week-06_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides-week-06_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -94,7 +97,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides-week-06_files/libs/revealjs/dist/theme/quarto-60f888cd3db5145ade4b8c62980eae51.css">
+  <link rel="stylesheet" href="slides-week-06_files/libs/revealjs/dist/theme/quarto-904b9709d6858400bccbddab514e9f21.css">
   <link href="slides-week-06_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides-week-06_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides-week-06_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -225,6 +228,22 @@
 <h1>Housekeeping</h1>
 
 </section>
+<section id="ai-session" class="slide level2 center">
+<h2>AI Session</h2>
+<aside class="notes">
+<p>Just use Claude Code</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="cheatsheets" class="slide level2 inverse center">
 <h2>Cheatsheets</h2>
 <aside class="notes">
@@ -278,6 +297,7 @@
 <p>https://r4ds.hadley.nz/data-tidy</p>
 <p>Think about unit of analysis</p>
 <p>Try to plot your data and if you can’t, it’s probably not tidy</p>
+<p>Make sure you have latest version of dplyr for recode_values etc functions</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -296,7 +316,7 @@
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>life_expectancy_over_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>life_expectancy_over_time</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -320,12 +340,12 @@
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>life_expectancy_over_time <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>life_expectancy_over_time <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a href=""></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb3-3"><a href=""></a>    <span class="at">cols =</span> <span class="sc">-</span>country,</span>
 <span id="cb3-4"><a href=""></a>    <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
 <span id="cb3-5"><a href=""></a>    <span class="at">values_to =</span> <span class="st">"life_expectancy"</span></span>
-<span id="cb3-6"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -352,7 +372,7 @@
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>my_addresses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>my_addresses</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -368,12 +388,12 @@
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>my_addresses <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>my_addresses <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href=""></a>  <span class="fu">separate_wider_delim</span>(</span>
 <span id="cb7-3"><a href=""></a>    <span class="at">cols =</span> address,</span>
 <span id="cb7-4"><a href=""></a>    <span class="at">delim =</span> <span class="st">", "</span>,</span>
 <span id="cb7-5"><a href=""></a>    <span class="at">names =</span> <span class="fu">c</span>(<span class="st">"street"</span>, <span class="st">"city"</span>, <span class="st">"state"</span>, <span class="st">"zip_code"</span>)</span>
-<span id="cb7-6"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -406,7 +426,7 @@
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>favorite_sports</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>favorite_sports</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -423,11 +443,11 @@
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>favorite_sports <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>favorite_sports <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a href=""></a>  <span class="fu">separate_longer_delim</span>(</span>
 <span id="cb11-3"><a href=""></a>    <span class="at">cols =</span> favorite_sport,</span>
 <span id="cb11-4"><a href=""></a>    <span class="at">delim =</span> <span class="st">", "</span></span>
-<span id="cb11-5"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a href=""></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -705,7 +725,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -817,13 +837,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

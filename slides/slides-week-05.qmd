@@ -177,3 +177,9 @@ Rebecca Barter talk from posit::conf: https://www.youtube.com/watch?v=1hfu1AvQkL
 ::: notes
 https://posit.co/blog/databot-is-not-a-flotation-device/
 :::
+
+# Next Week 
+
+- Course assignment: advanced data wrangling, part 1 (tidy data)
+
+- No project assignment in week 6
