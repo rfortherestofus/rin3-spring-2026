@@ -46,7 +46,7 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-06.html
 
 # Housekeeping {.inverse}
 
-## AI Session
+## AI Session {.inverse}
 
 ::: {.notes}
 Just use Claude Code
@@ -105,7 +105,6 @@ Make sure you have latest version of dplyr for recode_values etc functions
 
 ```{r}
 #| echo: false
-
 life_expectancy_over_time <-
   gapminder::gapminder |>
   mutate(country = as.character(country)) |>
