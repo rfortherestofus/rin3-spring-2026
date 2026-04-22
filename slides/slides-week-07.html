@@ -6,8 +6,8 @@
 <script src="slides-week-07_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides-week-07_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides-week-07_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-07_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+<link href="slides-week-07_files/libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.0">
 
   <title>R in 3 Months Week 7 (Functions)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="slides-week-07_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides-week-07_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -28,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slides-week-07_files/libs/revealjs/dist/theme/quarto-60f888cd3db5145ade4b8c62980eae51.css">
+  <link rel="stylesheet" href="slides-week-07_files/libs/revealjs/dist/theme/quarto-904b9709d6858400bccbddab514e9f21.css">
   <link href="slides-week-07_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides-week-07_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides-week-07_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -136,8 +139,7 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
-<li class="fragment"><p>Questions on Tidy Data?</p></li>
-<li class="fragment"><p>Question on Function Arguments</p></li>
+<li class="fragment"><p>Tidy Data Example</p></li>
 <li class="fragment"><p>Functions</p></li>
 <li class="fragment"><p>Next Week</p></li>
 </ol>
@@ -172,18 +174,25 @@
 <li class="fragment"><p>Week 13: Wrap Up</p></li>
 </ul>
 </section></section>
+<section>
 <section id="questions-on-tidy-data" class="title-slide slide level1 inverse center">
 <h1>Questions on Tidy Data?</h1>
 
 </section>
+<section id="tidy-data-example" class="slide level2 inverse center">
+<h2>Tidy Data Example</h2>
+</section></section>
+<section>
+<section id="functions" class="title-slide slide level1 inverse center">
+<h1>Functions</h1>
 
-<section id="question-on-function-arguments" class="title-slide slide level1 center">
-<h1>Question on Function Arguments</h1>
+</section>
+<section id="question-on-function-arguments" class="slide level2 center">
+<h2>Question on Function Arguments</h2>
 <div class="fragment">
 <p>I’m seeing a difference in the syntax used in the main video vs the solution video and am wondering if you can please explain the difference. In the main video, you use <code>separate_longer_delim(cols = activities,...</code> but the solution video uses <code>separate_longer_delim(partyid,...</code> without the use of <code>cols =</code>.</p>
 <aside class="notes">
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/tidy-data-rule-2-every-row-is-an-observation</p>
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/using-function-arguments</p>
+<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/using-function-arguments</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -196,34 +205,6 @@
           display:block!important;
       }</style></aside>
 </div>
-</section>
-
-<section>
-<section id="functions" class="title-slide slide level1 inverse center">
-<h1>Functions</h1>
-
-</section>
-<section id="functions-as-recipes" class="slide level2 inverse center">
-<h2>Functions as Recipes</h2>
-<aside class="notes">
-<ul>
-<li>Print quantities</li>
-<li>Make function</li>
-<li>Explain how last item in function is returned</li>
-<li>Explain how objects created in function don’t exist in global environment</li>
-<li>Show how to add argument to function to calculate number of cookies</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="advanced-functions" class="slide level2 inverse center">
 <h2>Advanced Functions</h2>
@@ -425,7 +406,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -499,13 +480,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

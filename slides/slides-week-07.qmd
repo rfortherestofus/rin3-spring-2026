@@ -25,10 +25,8 @@ editor_options:
 # Agenda
 
 1. Housekeeping
-
-1. Questions on Tidy Data?
-
-1. Question on Function Arguments
+P
+1. Tidy Data Example
 
 1. Functions
 
@@ -56,29 +54,20 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-07.html
 
 # Questions on Tidy Data? {.inverse}
 
-# Question on Function Arguments
+## Tidy Data Example {.inverse}
+
+# Functions {.inverse}
+
+## Question on Function Arguments
 
 . . .
 
 I'm seeing a difference in the syntax used in the main video vs the solution video and am wondering if you can please explain the difference. In the main video, you use `separate_longer_delim(cols = activities,...` but the solution video uses `separate_longer_delim(partyid,...` without the use of `cols =`.
 
 ::: {.notes}
-https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/tidy-data-rule-2-every-row-is-an-observation
-
-https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/using-function-arguments
+https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/using-function-arguments
 :::
 
-# Functions {.inverse}
-
-## Functions as Recipes {.inverse}
-
-::: {.notes}
-- Print quantities
-- Make function
-- Explain how last item in function is returned
-- Explain how objects created in function don't exist in global environment
-- Show how to add argument to function to calculate number of cookies
-:::
 
 ## Advanced Functions {.inverse}
 
