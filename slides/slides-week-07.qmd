@@ -56,6 +56,11 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-07.html
 
 ## Tidy Data Example {.inverse}
 
+::: {.notes}
+- places_by_type_and_rurality
+- population summaries
+:::
+
 # Functions {.inverse}
 
 ## Question on Function Arguments
