@@ -62,12 +62,6 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-08.html
 
 ## Why save as RDS vs CSV? {.inverse}
 
-## `case_match()` vs `case_when()`
-
-- You can always use `case_when()` where you use `case_match()`
-
-- You can only sometimes use `case_match()` where you use `case_when()`
-
 ## Joins
 
 - Difference between joining and binding columns
