@@ -68,8 +68,6 @@ You can get feedback through the end of June
 
 ## Joins
 
-- Difference between joining and binding columns
-
 - Mismatched variable types
 
 - Many-to-many joins
