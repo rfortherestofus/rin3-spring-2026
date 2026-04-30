@@ -26,6 +26,29 @@ names_and_ages |>
 names_and_ages |>
   mutate(age_parse_number = parse_number(age))
 
+addresses <-
+  tribble(
+    ~address                                   ,
+    "690 Omar Circle Yellow Springs, OH 45387"
+  )
+
+addresses |>
+  mutate(zip_code = parse_number(address))
+
+addresses |>
+  separate_wider_delim(
+    cols = address,
+    delim = ", ",
+    names = c("street_city", "state_zip")
+  ) |>
+  mutate(zip_code = parse_number(state_zip))
+
+addresses
+
+addresses |>
+  mutate(zip_code = str_extract(address, "\\d{5}$")) |>
+  mutate(zip_code = parse_number(zip_code))
+
 
 # Why save as RDS vs CSV? ------------------------------------------------
 
@@ -51,6 +74,8 @@ write_csv(names_and_ages_clean, "data/names_and_ages.csv")
 names_and_ages_clean_csv <-
   read_csv("data/names_and_ages.csv")
 
+names_and_ages_clean_csv
+
 names_and_ages_clean_csv |>
   count(age_group) |>
   ggplot(aes(x = age_group, y = n)) +
@@ -61,11 +86,12 @@ write_rds(names_and_ages_clean, "data/names_and_ages.rds")
 names_and_ages_clean_rds <-
   read_rds("data/names_and_ages.rds")
 
+names_and_ages_clean_rds
+
 names_and_ages_clean_rds |>
   count(age_group) |>
   ggplot(aes(x = age_group, y = n)) +
   geom_col()
-
 
 # Joins with mismatched variable types ------------------------------------
 
@@ -79,8 +105,10 @@ prices <-
   tibble(
     product_id = c("1", "2", "3", "4"),
     price = c(0.99, 1.50, 2.00, 2.50)
-  )
+  ) |>
+  mutate(product_id = parse_number(product_id))
 
+fruits
 prices
 
 left_join(
@@ -101,11 +129,15 @@ students <-
 
 courses <-
   tribble(
-    ~course   , ~section_id , ~professor  ,
-    "Math"    ,           1 , "Dr. Smith" ,
-    "Math"    ,           2 , "Dr. Jones" ,
-    "English" ,           1 , "Dr. Brown"
+    ~course     , ~section_id , ~professor    ,
+    "Math"      ,           1 , "Dr. Smith"   ,
+    "Math"      ,           2 , "Dr. Jones"   ,
+    "English"   ,           1 , "Dr. Brown"   ,
+    "Chemistry" ,           1 , "Dr. Ramirez"
   )
+
+students
+courses
 
 left_join(
   students,
@@ -113,7 +145,7 @@ left_join(
   join_by(course)
 )
 
-left_join(
+full_join(
   students,
   courses,
   join_by(course, section_id)
@@ -149,18 +181,32 @@ total_population <-
     total_population_2020
   )
 
-import_single_year_data <- function(year) {
+total_population
+
+import_single_year_data <- function(data_year) {
   read_excel(
-    path = str_glue("data-raw/{year}-obtn-by-county.xlsx"),
+    str_glue("data-raw/{data_year}-obtn-by-county.xlsx"),
     sheet = "Total Population"
   ) |>
     clean_names() |>
-    mutate(data_year = year)
+    mutate(year = data_year)
 }
 
-import_single_year_data(year = 2021)
+total_population_2019 <- import_single_year_data(data_year = 2019)
+total_population_2020 <- import_single_year_data(data_year = 2020)
 
-obtn_years <- 2019:2023
+total_population <-
+  bind_rows(
+    total_population_2019,
+    total_population_2020
+  )
+
+obtn_years <- c(2019, 2020, 2021, 2022, 2023)
+
+map(
+  obtn_years,
+  import_single_year_data
+)
 
 total_population <-
   map(
@@ -170,17 +216,27 @@ total_population <-
   bind_rows()
 
 total_population |>
-  group_by(data_year) |>
+  group_by(year) |>
   summarize(avg_population = mean(population))
+
+total_population |>
+  ggplot(
+    aes(
+      x = year,
+      y = population,
+      group = geography
+    )
+  ) +
+  geom_line()
 
 # Make multiple plots
 
-make_total_population_plot <- function(county_name) {
+total_population_plot <- function(county_name) {
   total_population |>
     filter(geography == county_name) |>
     ggplot(
       aes(
-        x = data_year,
+        x = year,
         y = population
       )
     ) +
@@ -191,7 +247,7 @@ make_total_population_plot <- function(county_name) {
   )
 }
 
-make_total_population_plot("Multnomah")
+total_population_plot("Multnomah")
 
 oregon_counties <-
   total_population |>
@@ -200,5 +256,5 @@ oregon_counties <-
 
 walk(
   oregon_counties,
-  make_total_population_plot
+  total_population_plot
 )
