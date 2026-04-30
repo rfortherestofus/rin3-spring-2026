@@ -54,6 +54,10 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-08.html
 
 - Week 13: Wrap-up
 
+## Feedback
+
+You can get feedback through the end of June
+
 # Your Questions {.inverse}
 
 ## as.numeric() + parse_number()
