@@ -38,10 +38,6 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-09.html
 
 # Housekeeping
 
-Co-working session
-
-# Housekeeping
-
 . . .
 
 Remaining weeks:
@@ -56,7 +52,7 @@ Remaining weeks:
 
 # Housekeeping
 
-- You can get feedback from your coach through the end of December
+- You can get feedback from your coach through the end of June
 - You have access to materials FOREVER!
 
 # Advanced Data Viz {.inverse}
@@ -69,10 +65,6 @@ This week you learned about:
 - Adding descriptive labels
 - Using annotations
 :::
-
-# Europa Data Viz Guide
-
-[![](assets/europa-data-viz.png)](https://data.europa.eu/apps/data-visualisation-guide/)
 
 # CBEM Bar Chart Live Coding
 
