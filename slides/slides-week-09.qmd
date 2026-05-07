@@ -54,6 +54,8 @@ Remaining weeks:
 
 - Week 13: Final projects
 
+# AI Session Next Week (?) {.inverse}
+
 # Housekeeping
 
 - You can get feedback from your coach through the end of June
@@ -72,7 +74,7 @@ This week you learned about:
 
 # CBEM Bar Chart Live Coding
 
-[![](assets/cbem-example.jpeg)](https://judishouse.org/research-tools/cbem/cbem-key-topics/cbem-race-ethnicity/cbem-race-ethnicity-reports/)
+[![](assets/cbem-example.jpeg)](https://cbem.judishouse.org/cbem-reports)
 
 ::: {.notes}
 - chicklet
