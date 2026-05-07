@@ -38,11 +38,15 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-09.html
 
 # Housekeeping
 
+[Check-in survey](https://forms.gle/Fvz9H4oQUGFozeN66)
+
+# Housekeeping
+
 . . .
 
 Remaining weeks:
 
-- Week 10: Catch-up week (no live session or co-working session)
+- Week 10: Catch-up week (possible AI session)
 
 - Week 11: Advanced data viz, part 2 (making your own ggplot theme)
 
