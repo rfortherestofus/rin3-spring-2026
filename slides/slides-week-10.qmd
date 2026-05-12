@@ -60,7 +60,7 @@ round_half_up_percent() etc⁣⁠⁠​­⁠​⁠⁠‌​⁣​⁠⁣‍⁣​
 Do it with CBEM code⁣⁠‍‍‍​​‍‌​‌­‌­⁣­‍‍­⁣⁠‍⁠​‌‍​‍⁠‌­​‍​⁠⁣
 :::
 
-# Review and Refactor CodeP
+# Review and Refactor Code
 
 ::: {.notes}
 ⁣⁠­​‌⁠⁠⁠⁠‍­‌‌‍⁣​​​⁠‍­‍⁣Write co‌de⁣ that repeats‌‍ itself and could be a function⁠​‍​‌‍⁠⁠⁣
