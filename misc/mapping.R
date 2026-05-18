@@ -95,6 +95,8 @@ median_income |>
   geom_sf()
 
 
+# Check-in break ----------------------------------------------------------
+
 # International Data ------------------------------------------------------
 
 library(rnaturalearth)
