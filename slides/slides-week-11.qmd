@@ -20,6 +20,9 @@ title-slide-attributes:
   data-background-size: cover
 editor_options: 
   chunk_output_type: console
+countdown:
+  color_background: "lightblue"
+  border_width: "0"
 ---
 
 ```{r}
@@ -49,11 +52,63 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-11.html
 
 1. Two more weeks: Advanced Quarto and final projects
 
-1. Final project is to record a video demonstrating something you've learned ([lesson](https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/fall-2024-r-in-3-months-final-project))
+1. Final project is to record a video demonstrating something you've learned ([lesson](https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/spring-2026-r-in-3-months-final-project))
 
 ::: {.notes}
 Please submit things!
 :::
+
+## Self-reflection
+{{< countdown "1:00" top=0 right=0 >}}
+
+**Please share in the chat:**  
+
+1. What was one thing that you've found difficult this week?  
+2. What was one thing that you've learned this week?  
+
+## Why is `group = district` needed?
+
+{{< countdown "2:00" top=0 right=0 >}}
+
+```{r eval = FALSE, echo = TRUE}
+ggplot(
+  aes(
+    x = year,
+    y = pct,
+    color = highlight_district,
+    group = district
+  )
+) +
+  geom_line()
+```
+
+
+A. To create one line per district  
+B. To color the lines  
+C. To remove missing values  
+D. To format percentages  
+
+## Why is `group = district` needed?
+
+```{r eval = FALSE, echo = TRUE}
+ggplot(
+  aes(
+    x = year,
+    y = pct,
+    color = highlight_district,
+    group = district
+  )
+) +
+  geom_line()
+```
+
+
+A. [To create one line per district]{.mark}  
+B. To color the lines  
+C. To remove missing values  
+D. To format percentages 
+
+
 
 # Advanced Custom Themes {.inverse}
 
@@ -95,6 +150,34 @@ https://r.geocompx.org/
 - crs
 - geometry column
 :::
+
+## Check-in break
+
+{{< countdown "2:00" top=0 right=0 >}}
+
+```{r eval = FALSE, echo = TRUE}
+ggplot() +
+  geom_sf(
+    data = portland_boundaries,
+    fill = "gray80"
+  ) +
+  geom_sf(
+    data = traffic_signals,
+    aes(color = software_type),
+    size = 1
+  )
+```
+
+1. Which layer will appear underneath the other?
+2. What geometry type is `traffic_signals` likely using?
+3. What will determine the color of the traffic signal points?
+
+::: {.notes}
+1. First layer (portland_boundaries) draws underneath.
+2. traffic_signals is likely _point_ geometry.
+3. software_type controls color.
+:::
+
 
 # Interactive Data Viz {.inverse}
 
