@@ -26,7 +26,7 @@ editor_options:
 
 AI!
 
-# Modes
+# Modes {.inverse}
 
 ::: {.notes}
 - How to enable dangerously bypass permissions
@@ -34,33 +34,33 @@ AI!
 - Dangerously bypass permissions
 :::
 
-# Tidy Data
+# Tidy Data {.inverse}
 
-# Posit Assistant
+# Posit Assistant {.inverse}
 
 ::: {.notes}
 - ⁣⁠⁠​‍​​​‍‌‍​‍‌⁣‍‌‍⁠‌‍⁠‍­‌‍‍‌‌⁣‍­‍​⁠⁣Positron assistant is going away
 :::
 
-# Making Data Viz
+# Making Data Viz {.inverse}
 
 ::: {.notes}
 Make something in NYT style⁣⁠‍⁣‍⁠‍⁠‍⁠‌​‍​⁣⁠‍­‍‌⁠‍‌­‌‍⁠­​⁠⁣⁠‌⁠⁠⁣
 :::
 
-# Creating Functions
+# Creating Functions {.inverse}
 
 ::: {.notes}
 round_half_up_percent() etc⁣⁠⁠​­⁠​⁠⁠‌​⁣​⁠⁣‍⁣​​­​⁠⁣‍‍‌‌­‌​­⁠‍⁣⁠⁣
 :::
 
-# Interpreting Code
+# Interpreting Code {.inverse}
 
 ::: {.notes}
 Do it with CBEM code⁣⁠‍‍‍​​‍‌​‌­‌­⁣­‍‍­⁣⁠‍⁠​‌‍​‍⁠‌­​‍​⁠⁣
 :::
 
-# Review and Refactor Code
+# Review and Refactor Code {.inverse}
 
 ::: {.notes}
 ⁣⁠­​‌⁠⁠⁠⁠‍­‌‌‍⁣​​​⁠‍­‍⁣Write co‌de⁣ that repeats‌‍ itself and could be a function⁠​‍​‌‍⁠⁠⁣
