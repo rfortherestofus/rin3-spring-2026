@@ -68,7 +68,7 @@ Please submit things!
 
 ## Why is `group = district` needed?
 
-{{< countdown "2:00" top=0 right=0 >}}
+{{< countdown "1:00" top=0 right=0 >}}
 
 ```{r eval = FALSE, echo = TRUE}
 ggplot(
