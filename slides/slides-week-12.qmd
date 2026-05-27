@@ -43,7 +43,7 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-12.html
   
 # Housekeeping
   
-1. Next week is the last live session, but you can get feedback through end of December
+1. Next week is the last live session, but you can get feedback through end of June
 
 1. You'll have access to course materials forever!
 
@@ -153,26 +153,21 @@ Render Multiple Reports with `quarto_render()`
 
 ```
 library(tidyverse)
-library(palmerpenguins)
 library(quarto)
 
-quarto_render(
-  input = "report.qmd",
-  output_file = "Dream.html",
-  execute_params = list(island = "Dream")
-)
+median_income_by_county <-
+  read_csv("data-raw/median_income_by_county.csv")
 
-islands <-
-  penguins |>
-  distinct(island) |>
-  pull(island) |>
-  as.character()
+states <-
+  median_income_by_county |>
+  distinct(state) |>
+  pull(state)
 
 reports <-
   tibble(
     input = "report.qmd",
-    output_file = str_glue("{islands}.html"),
-    execute_params = map(islands, ~ list(island = .))
+    output_file = str_glue("{states}.html"),
+    execute_params = map(states, ~ list(state = .))
   )
 
 pwalk(reports, quarto_render)
@@ -181,7 +176,7 @@ pwalk(reports, quarto_render)
   
 # Next Week
 
-- Surveys on your [progress](https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/r-in-3-months-progress-survey) and on [feedback](https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/r-in-3-months-feedback-survey) for R in 3 Months
+- Surveys on your [progress](https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-progress-survey) and on [feedback](https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-feedback-survey) for R in 3 Months
   
 - Please complete final projects **even if you haven't completed every single lesson**
 

@@ -6,8 +6,8 @@
 <script src="slides-week-12_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides-week-12_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides-week-12_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-12_files/libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.23">
+<link href="slides-week-12_files/libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.0">
 
   <title>R in 3 Months Week 12 (Advanced Quarto)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -28,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/theme/quarto-ce527e432b5a161944742d57f71b4c0a.css">
+  <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/theme/quarto-904b9709d6858400bccbddab514e9f21.css">
   <link href="slides-week-12_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides-week-12_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides-week-12_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -157,7 +160,7 @@
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
 <ol type="1">
-<li class="fragment"><p>Next week is the last live session, but you can get feedback through end of December</p></li>
+<li class="fragment"><p>Next week is the last live session, but you can get feedback through end of June</p></li>
 <li class="fragment"><p>You’ll have access to course materials forever!</p></li>
 </ol>
 </section>
@@ -315,26 +318,21 @@
 <li>Render multiple reports with <code>pwalk()</code></li>
 </ul>
 <pre><code>library(tidyverse)
-library(palmerpenguins)
 library(quarto)
 
-quarto_render(
-  input = "report.qmd",
-  output_file = "Dream.html",
-  execute_params = list(island = "Dream")
-)
+median_income_by_county &lt;-
+  read_csv("data-raw/median_income_by_county.csv")
 
-islands &lt;-
-  penguins |&gt;
-  distinct(island) |&gt;
-  pull(island) |&gt;
-  as.character()
+states &lt;-
+  median_income_by_county |&gt;
+  distinct(state) |&gt;
+  pull(state)
 
 reports &lt;-
   tibble(
     input = "report.qmd",
-    output_file = str_glue("{islands}.html"),
-    execute_params = map(islands, ~ list(island = .))
+    output_file = str_glue("{states}.html"),
+    execute_params = map(states, ~ list(state = .))
   )
 
 pwalk(reports, quarto_render)</code></pre>
@@ -353,7 +351,7 @@ pwalk(reports, quarto_render)</code></pre>
 <section id="next-week" class="title-slide slide level1 center">
 <h1>Next Week</h1>
 <ul>
-<li class="fragment"><p>Surveys on your <a href="https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/r-in-3-months-progress-survey">progress</a> and on <a href="https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/r-in-3-months-feedback-survey">feedback</a> for R in 3 Months</p></li>
+<li class="fragment"><p>Surveys on your <a href="https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-progress-survey">progress</a> and on <a href="https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-feedback-survey">feedback</a> for R in 3 Months</p></li>
 <li class="fragment"><p>Please complete final projects <strong>even if you haven’t completed every single lesson</strong></p></li>
 <li class="fragment"><p>Add info about your final project on <a href="https://docs.google.com/presentation/d/1hDWjd-E2JLnVrRYF4l8VZSWqUIDrj49TTJwzu4hgx_I/edit?usp=sharing">this Google Slides presentation</a></p></li>
 </ul>
@@ -568,7 +566,7 @@ pwalk(reports, quarto_render)</code></pre>
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -680,13 +678,14 @@ pwalk(reports, quarto_render)</code></pre>
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
