@@ -52,7 +52,7 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-12.html
 
 1. Next week is the last live session, but you can get feedback through end of June
 
-1. Coworking session will happen exceptionally on **Monday, June 1st, at 10am PT**
+1. Coworking session will happen on **Monday, June 1st, at 10am PT** (not Tuesday)
 
 1. You'll have access to course materials forever!
 
@@ -193,30 +193,9 @@ pwalk(reports, quarto_render)
 
 ## Check-in break {incremental=false}
 
-{{< countdown "2:00" top=0 right=0 >}}
+{{< countdown "1:00" top=0 right=0 >}}
 
-What would happen if you created a `reports` tibble with the following argument?
-
-```{r eval=FALSE}
-execute_params = list(county = vector_of_counties)
-```
-
-A. Each county in `vector_of_counties` would automatically be treated as a separate render job
-
-B. Quarto would recycle the vector so every report gets the same first county
-
-C. The entire vector would be passed as a single parameter value to every render  
-
-[D. The code would error because `execute_params` must be created with a list of lists, not a vector]{.rn-fragment}
-
-
-::: {.notes}
-Answer: D
-
-execute_params is expected to be a list where each element is a named list of parameters (e.g., list(county = "Oregon")).
-
-If you pass list(county = vector_of_counties), you are providing a vector inside a single parameter set, not multiple parameter sets. Quarto will not automatically expand that vector into multiple render jobs, so this structure is invalid for iterative rendering.
-:::
+What is still confusing to you about parameterized reporting?
 
 
 # Next Week
