@@ -20,6 +20,11 @@ title-slide-attributes:
 data-background-size: cover
 editor_options: 
   chunk_output_type: console
+countdown:
+  color_background: "lightblue"
+  border_width: "0"
+filters:
+   - roughnotation
 ---
   
 ```{r}
@@ -45,7 +50,17 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-12.html
   
 1. Next week is the last live session, but you can get feedback through end of June
 
+1. Coworking session will happen exceptionally on **Monday, June 1st, at 10am PT**
+
 1. You'll have access to course materials forever!
+
+## Self-reflection
+{{< countdown "1:00" top=0 right=0 >}}
+
+**Please share in the chat:**  
+
+1. What was one thing you found difficult this week? 
+2. What was one thing you learned this week?
 
 # Parameterized Reporting {.inverse}
 
@@ -173,14 +188,42 @@ reports <-
 pwalk(reports, quarto_render)
 ```
 :::
-  
+
+## Check-in break {incremental=false}
+
+{{< countdown "2:00" top=0 right=0 >}}
+
+What would happen if you created a `reports` tibble with the following argument?
+
+```{r eval=FALSE}
+execute_params = list(county = vector_of_counties)
+```
+
+A. Each county in `vector_of_counties` would automatically be treated as a separate render job
+
+B. Quarto would recycle the vector so every report gets the same first county
+
+C. The entire vector would be passed as a single parameter value to every render  
+
+[D. The code would error because `execute_params` must be created with a list of lists, not a vector]{.rn-fragment}
+
+
+::: {.notes}
+Answer: D
+
+execute_params is expected to be a list where each element is a named list of parameters (e.g., list(county = "Oregon")).
+
+If you pass list(county = vector_of_counties), you are providing a vector inside a single parameter set, not multiple parameter sets. Quarto will not automatically expand that vector into multiple render jobs, so this structure is invalid for iterative rendering.
+:::
+
+
 # Next Week
 
 - Surveys on your [progress](https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-progress-survey) and on [feedback](https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-feedback-survey) for R in 3 Months
   
 - Please complete final projects **even if you haven't completed every single lesson**
 
-- Add info about your final project on [this Google Slides presentation](https://docs.google.com/presentation/d/1hDWjd-E2JLnVrRYF4l8VZSWqUIDrj49TTJwzu4hgx_I/edit?usp=sharing)
+- Add info about your final project on [this Google Slides presentation](https://docs.google.com/presentation/d/1kDRwjcJP-qjrmSNgkEIGmhg9imfhGWks81-9JANpQog/edit?usp=sharing)
 
 ::: {.notes}
 Examples from past cohort: https://docs.google.com/presentation/d/1crH3G9yiksU_INYET-UGhIofWMwQQtkJJAjvEwLzyxE/edit?usp=sharing

@@ -6,8 +6,14 @@
 <script src="slides-week-12_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="slides-week-12_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides-week-12_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slides-week-12_files/libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.10.0">
+<link href="slides-week-12_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="slides-week-12_files/libs/quarto-contrib/roughnotation-0.5.1/rough-notation.iife.js"></script>
+<script src="slides-week-12_files/libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script>
+<link href="slides-week-12_files/libs/quarto-contrib/roughnotation-init-1.0.0/rough.css" rel="stylesheet">
+<script src="slides-week-12_files/libs/quarto-contrib/roughnotation-flourish-bridge-1.0.0/flourish-bridge.js"></script>
+<script src="slides-week-12_files/libs/quarto-contrib/countdown-0.6.0/countdown.js"></script>
+<link href="slides-week-12_files/libs/quarto-contrib/countdown-0.6.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <title>R in 3 Months Week 12 (Advanced Quarto)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,9 +22,6 @@
   <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,8 +33,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/theme/quarto-904b9709d6858400bccbddab514e9f21.css">
+  <link rel="stylesheet" href="slides-week-12_files/libs/revealjs/dist/theme/quarto-3ba29524185537f454d304d0a1c4b243.css">
   <link href="slides-week-12_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides-week-12_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="slides-week-12_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -123,6 +192,8 @@
       margin-right: 0; 
     }
   </style>
+  <!-- Countdown Global CSS -->
+  <style text="text/css">:root {--countdown-border-width: 0;--countdown-color-background: lightblue;}</style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -157,14 +228,25 @@
       }</style></aside>
 </section>
 
+<section>
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
 <ol type="1">
 <li class="fragment"><p>Next week is the last live session, but you can get feedback through end of June</p></li>
+<li class="fragment"><p>Coworking session will happen exceptionally on <strong>Monday, June 1st, at 10am PT</strong></p></li>
 <li class="fragment"><p>You’ll have access to course materials forever!</p></li>
 </ol>
 </section>
-
+<section id="self-reflection" class="slide level2 center">
+<h2>Self-reflection</h2>
+<countdown-timer id="timer_db8948896c5a315772ef91bf111cddf08ee9d0bb" minutes="01" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+ </countdown-timer>
+<p><strong>Please share in the chat:</strong></p>
+<ol type="1">
+<li class="fragment">What was one thing you found difficult this week?</li>
+<li class="fragment">What was one thing you learned this week?</li>
+</ol>
+</section></section>
 <section>
 <section id="parameterized-reporting" class="title-slide slide level1 inverse center">
 <h1>Parameterized Reporting</h1>
@@ -347,13 +429,41 @@ pwalk(reports, quarto_render)</code></pre>
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="check-in-break" class="slide level2 center" data-incremental="false">
+<h2>Check-in break</h2>
+<countdown-timer id="timer_db8948896c5a315772ef91bf111cddf08ee9d0bb" minutes="02" seconds="00" class="countdown" warn-when="0" update-every="1" play-sound="false" blink-colon="false" start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+ </countdown-timer>
+<p>What would happen if you created a <code>reports</code> tibble with the following argument?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>execute_params <span class="ot">=</span> <span class="fu">list</span>(<span class="at">county =</span> vector_of_counties)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A. Each county in <code>vector_of_counties</code> would automatically be treated as a separate render job</p>
+<p>B. Quarto would recycle the vector so every report gets the same first county</p>
+<p>C. The entire vector would be passed as a single parameter value to every render</p>
+<p><span class="rn-fragment fragment">D. The code would error because <code>execute_params</code> must be created with a list of lists, not a vector</span></p>
+<aside class="notes">
+<p>Answer: D</p>
+<p>execute_params is expected to be a list where each element is a named list of parameters (e.g., list(county = “Oregon”)).</p>
+<p>If you pass list(county = vector_of_counties), you are providing a vector inside a single parameter set, not multiple parameter sets. Quarto will not automatically expand that vector into multiple render jobs, so this structure is invalid for iterative rendering.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="next-week" class="title-slide slide level1 center">
 <h1>Next Week</h1>
 <ul>
 <li class="fragment"><p>Surveys on your <a href="https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-progress-survey">progress</a> and on <a href="https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-feedback-survey">feedback</a> for R in 3 Months</p></li>
 <li class="fragment"><p>Please complete final projects <strong>even if you haven’t completed every single lesson</strong></p></li>
-<li class="fragment"><p>Add info about your final project on <a href="https://docs.google.com/presentation/d/1hDWjd-E2JLnVrRYF4l8VZSWqUIDrj49TTJwzu4hgx_I/edit?usp=sharing">this Google Slides presentation</a></p></li>
+<li class="fragment"><p>Add info about your final project on <a href="https://docs.google.com/presentation/d/1kDRwjcJP-qjrmSNgkEIGmhg9imfhGWks81-9JANpQog/edit?usp=sharing">this Google Slides presentation</a></p></li>
 </ul>
 <aside class="notes">
 <p>Examples from past cohort: https://docs.google.com/presentation/d/1crH3G9yiksU_INYET-UGhIofWMwQQtkJJAjvEwLzyxE/edit?usp=sharing</p>
