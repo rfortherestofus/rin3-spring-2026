@@ -54,7 +54,7 @@ library(tidyverse)
 library(janitor)
 library(scales)
 
-rin3_start_date <- "2025-08-01"
+rin3_start_date <- "2026-03-01"
 
 gs4_auth("gracielle@rfortherestofus.com")
 
@@ -118,7 +118,7 @@ pre_post_plot <- function(area) {
 ```
 
 ::: {.notes}
-https://rfortherestofus.com/courses/r-in-3-months-fall-2025/lessons/r-in-3-months-progress-survey
+https://rfortherestofus.com/courses/r-in-3-months-spring-2026/lessons/r-in-3-months-progress-survey
 :::
 
 ## Data Analysis
@@ -145,7 +145,7 @@ pre_post_plot(area = "scared")
 ## What You've Done in the Last Three Months {.inverse}
 
 ::: {.notes}
-https://docs.google.com/presentation/d/1hDWjd-E2JLnVrRYF4l8VZSWqUIDrj49TTJwzu4hgx_I/edit?usp=sharing
+https://docs.google.com/presentation/d/1kDRwjcJP-qjrmSNgkEIGmhg9imfhGWks81-9JANpQog
 :::
 
 # Where to Go From Here {.inverse}
