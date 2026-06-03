@@ -48,7 +48,6 @@ https://rin3spring2026.rfortherestofus.com/slides/slides-week-13.html
 
 ```{r}
 #| echo: false
-
 library(googlesheets4)
 library(tidyverse)
 library(janitor)
@@ -56,7 +55,7 @@ library(scales)
 
 rin3_start_date <- "2026-03-01"
 
-gs4_auth("gracielle@rfortherestofus.com")
+gs4_auth("david@rfortherestofus.com")
 
 pre_survey <- read_sheet(
   "https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit#gid=1201619159"
@@ -239,13 +238,10 @@ There are two popular question and answer communities for (R) code questions:
 
 ---
 
-### Bonus: AI {.inverse}
+## AI {.inverse}
 
-{{< video https://cdn.muse.ai/w/0dc8f6b8d6cd7bea6de83fb6083cb05629c787e47607c2b77150dd74f4dd2ffa/videos/video.mp4 >}}
 
-::: {.notes}
-Show Positron assistant fix and explain video
-:::
+## {background-video="assets/AllyLogo.mp4" background-video-loop="true" background-size="contain"}
 
 # How to Ask Good (Code) Questions {.inverse}
 
@@ -283,11 +279,11 @@ How can I reorder bars on the y axis?
 
 1.  Select the code that makes your reprex
 
-2.  Open the Addins menu and select "Render reprex..."
+2.  Use `reprex::reprex_addin()` to open an interactive menu to create a reprex
 
 3.  Choose the options for where you're asking your question
 
-4.  Copy and paste the output in the Viewer tab into your question
+4.  Copy the output and paste it wherever you want to get help
 
 ## Learn More About Reprex
 
@@ -299,9 +295,9 @@ How can I reorder bars on the y axis?
 
 ## R in 3 Months
 
-1.  Submit any assignments for feedback any time in December
+1.  Submit any assignments for feedback any time in June
 
-2.  Any 1-on-1s with Gracielle must be completed by end of December
+2.  Any 1-on-1s with Gracielle must be completed by end of June
 
 3.  Please submit final assignments whenever (we love seeing what you've done!)
 
@@ -309,9 +305,7 @@ How can I reorder bars on the y axis?
 
 ## Other Things
 
-1. Topics courses (use coupon code RIN3TOPICSCOURSES to get 25% off)
-
-1. Everyone has access to [Using Git and GitHub with R](https://rfortherestofus.com/courses/git-github)
+1. Ally launching later this summer!
 
 1. Additional ways that R for the Rest of Us can help you and your organization
 

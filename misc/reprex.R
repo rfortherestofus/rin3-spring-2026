@@ -1,13 +1,12 @@
-
 # Bad example -------------------------------------------------------------
 
 library(tidyverse)
 
 cbem <- read_csv("data-raw/cbem.csv")
 
-cbem |> 
-  filter(location == "Oregon") |> 
-  filter(age_group == "Under 18") |> 
+cbem |>
+  filter(location == "Oregon") |>
+  filter(age_group == "Under 18") |>
   ggplot(aes(
     x = percent,
     y = group
